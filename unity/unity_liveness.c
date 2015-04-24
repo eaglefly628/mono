@@ -159,7 +159,7 @@ static void mono_traverse_generic_object( MonoObject* object, LivenessState* sta
 
 static void mono_add_process_object (MonoObject* object, LivenessState* state)
 {
-	if (object && !IS_MARKED(object))
+	if (object && !IS_MARKED(object))//crash!!!!!! object is 0x0000000b or 0x0000003 in call_message
 	{
 		gboolean has_references = GET_VTABLE(object)->klass->has_references;
 		if(has_references || should_process_value(object,state->filter))
